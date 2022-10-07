@@ -40,4 +40,9 @@ class User extends Authenticatable
     public function player() {
         return $this->hasMany('App\Player');
     }
+    
+    public function staff() {
+        return $this->hasMany('App\Staff');
+    }
+
 }

@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="position_id">ポジション</label>
                 <select  class="form-control" id="position_id" name="position_id">
-                    <option disabled selected>{{ $player['position_id'] }}</option>
+                    <option disabled selected>{{ $player['position']['name'] }}</option>
                     <option value=1>PG</option>
                     <option value=2>SG</option>
                     <option value=3>SF</option>
@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label for="sex">性別</label>
                 <select class="form-control" id="sex" name="sex">
-                    <option value="" disabled selected>{{ $player['sex'] }}</option>
+                    <option value="" disabled selected>{{ $player['sex']['name'] }}</option>
                     <option value=0>男性</option>
                     <option value=1>女性</option>
                 </select>

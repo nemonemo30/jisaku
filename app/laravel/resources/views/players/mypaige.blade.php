@@ -22,7 +22,7 @@
                                 <th>名前：{{ $player['name'] }}</th>
                             </tr>
                             <tr>
-                                <th>ポジション：{{ $player['position_id'] }}</th>
+                                <th>ポジション：{{ $player['position']['name'] }}</th>
                             </tr>
                             <tr>
                                 <th>身長：{{ $player['height'] }}</th>
@@ -34,7 +34,7 @@
                                 <th>年齢：{{ $player['age'] }}</th>
                             </tr>
                             <tr>
-                                <th>性別：{{ $player['sex'] }}</th>
+                                <th>性別：{{ $player['sex']['name'] }}</th>
                             </tr>
                             <tr>
                                 <th>出身：{{ $player['from'] }}</th>

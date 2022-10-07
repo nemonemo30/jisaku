@@ -16,9 +16,11 @@ use App\Http\Controllers\DisplayController;
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
+    
     Route::get('/', [DisplayController::class, 'index']);
     
     Route::get('/mypaige', [DisplayController::class, 'mypaige'])->name('mypaige');
+    Route::get('/mypaige', [DisplayController::class, 'staffs_mypaige'])->name('staffs_mypaige');
 
     Route::get('/update', [DisplayController::class, 'update'])->name('update');
 
