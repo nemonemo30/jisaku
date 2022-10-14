@@ -9,10 +9,10 @@ class Staff extends Model
     protected $table = 'staffs';
     
     protected $fillable = [
-        'name', 'hometown', 'league', 'comment', 'del_flg',
+        'name', 'hometown', 'league_id', 'comment',
     ];
     
     public function league () {
-        return $this->belongsTo('App\League', 'league', 'id');
+        return $this->belongsTo('App\League', 'league_id', 'id');
     }
 }

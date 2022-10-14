@@ -6,7 +6,7 @@
       <nav class="card mt-5">
         <div class="card-header">新規作成</div>
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="{{ route('create') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">名前</label>
@@ -36,8 +36,8 @@
                 <input type="number" class="form-control" id="age" name="age">
             </div>
             <div class="form-group">
-                <label for="sex">性別</label>
-                <select class="form-control" id="sex" name="sex">
+                <label for="sex_id">性別</label>
+                <select class="form-control" id="sex_id" name="sex_id">
                     <option value="" disabled selected>選択してください</option>
                     <option value=1>男性</option>
                     <option value=2>女性</option>
@@ -52,7 +52,7 @@
                 <textarea name="comment" id="comment" class="form-control" cols="35" rows="10"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">登録</button>
+              <button type="submit" class="btn btn-primary" onClick="confirm('この内容で登録します')">登録</button>
             </div>
           </form>
         </div>

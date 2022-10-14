@@ -7,7 +7,7 @@
         <div class="card-header">新規作成</div>
         <div class="card-body">
             @foreach($players as $player)
-          <form action="" method="POST">
+          <form action="{{ route('update') }}" method="post">
             @csrf
             <div class="form-group">
                 <label for="name">名前</label>
@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="position_id">ポジション</label>
                 <select  class="form-control" id="position_id" name="position_id">
-                    <option disabled selected>{{ $player['position']['name'] }}</option>
+                    <option value="{{ $player['position_id'] }}" selected>{{ $player['position']['name'] }}</option>
                     <option value=1>PG</option>
                     <option value=2>SG</option>
                     <option value=3>SF</option>
@@ -37,9 +37,9 @@
                 <input type="number" class="form-control" id="age" name="age" value="{{ $player['age'] }}">
             </div>
             <div class="form-group">
-                <label for="sex">性別</label>
-                <select class="form-control" id="sex" name="sex">
-                    <option value="" disabled selected>{{ $player['sex']['name'] }}</option>
+                <label for="sex_id">性別</label>
+                <select class="form-control" id="sex_id" name="sex_id">
+                    <option value="{{ $player['sex_id'] }}" selected>{{ $player['sex']['name'] }}</option>
                     <option value=0>男性</option>
                     <option value=1>女性</option>
                 </select>

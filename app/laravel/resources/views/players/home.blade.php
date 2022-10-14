@@ -26,21 +26,22 @@
                 <option value=3>SF</option>
                 <option value=4>PF</option>
                 <option value=5>C</option>
+                <option value=null>選択なし</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="league">所属リーグ</label>
-              <select  class="form-control" id="league" name="league">
+              <label for="league_id">所属リーグ</label>
+              <select  class="form-control" id="league_id" name="league_id">
                 <option disabled selected>選択してください</option>
                 <option value=1>B-league</option>
-                <option value=2>3x3</option>
-                <option value=3>地域リーグ</option>
+                <option value=2>地域リーグ</option>
+                <option value=3>3x3</option>
                 <option value=4>アマチュアリーグ</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="sex">性別</label>
-              <select  class="form-control" id="sex" name="sex">
+              <label for="sex_id">性別</label>
+              <select  class="form-control" id="sex_id" name="sex_id">
                 <option disabled selected>選択してください</option>
                 <option value=1>男性</option>
                 <option value=2>女性</option>

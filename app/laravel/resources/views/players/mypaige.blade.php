@@ -37,9 +37,6 @@
                                 <th>性別：{{ $player['sex']['name'] }}</th>
                             </tr>
                             <tr>
-                                <th>出身：{{ $player['from'] }}</th>
-                            </tr>
-                            <tr>
                                 <th>コメント：{{ $player['comment'] }}</th>
                             </tr>
                         </table>
@@ -56,28 +53,40 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <div class='text-center'>応募したチーム情報</div>
+                    <div class='text-center'>応募中の内容</div>
                 </div>
+                @if(!empty($contacts))
+                @foreach($contacts as $contact)
                 <div class="card-body">
                     <div class="card-body">
-                        @foreach($players as $player)
                         <table class='table'>
                             <tr>
-                                <th>チーム名：</th>
+                                <th>チーム名：{{ $contact['recruit']['name'] }}</th>
                             </tr>
                             <tr>
-                                <th>所在地：</th>
+                                <th>ポジション：{{ $contact['recruit']['position_id'] }}</th>
                             </tr>
                             <tr>
-                                <th>所属リーグ：</th>
+                                <th>活動日：{{ $contact['recruit']['active'] }}</th>
                             </tr>
                             <tr>
-                                <th>コメント：</th>
+                                <th>コメント：{{ $contact['recruit']['comment'] }}</th>
                             </tr>
-                        </table>
-                        @endforeach
+                            <div></div>
+                        </table>            
+                            <a onClick="confirm('本当に削除してよろしいですか')" href="">
+                                <button>削除</button>
+                            </a>
                     </div>
                 </div>
+                @endforeach
+                @else
+                <table class='table'>
+                    <tr>
+                        <a class="text-center" href="">？</a>
+                    </tr>
+                </table>
+                @endif
             </div>
         </div>
     </div>

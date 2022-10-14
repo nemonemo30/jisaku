@@ -47,6 +47,11 @@
                     @endif
                 </div>
             </div>
+            <div class="text-right">
+                <a href="{{ route('home') }}">
+                    home
+                </a>
+            </div>
         </nav>
     </div>
 </nav>

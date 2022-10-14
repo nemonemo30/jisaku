@@ -45,4 +45,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Staff');
     }
 
+    public function recruit() {
+        return $this->hasMany('App\Recruit');
+    }
+
+    public function contact() {
+        return $this->hasMany('App\Contact');
+    }
+
 }

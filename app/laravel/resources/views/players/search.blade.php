@@ -6,7 +6,7 @@ class keyword {
         if (empty($_POST["hometown"])) {
             null;
         }else {
-            echo $_POST['hometown'].',';
+            echo $_POST['hometown'].' ';
         }
     }
     
@@ -15,15 +15,15 @@ class keyword {
             null;
         }else {
             if ($_POST['position_id']==1) {
-                echo 'PG,';
+                echo 'PG ';
             }else if ($_POST['position_id']==2){
-                echo 'SG,';
+                echo 'SG ';
             }else if ($_POST['position_id']==3){
-                echo 'SF,';
+                echo 'SF ';
             }else if ($_POST['position_id']==4){
-                echo 'PF,';
+                echo 'PF ';
             }else if ($_POST['position_id']==5) {
-                echo 'C,';
+                echo 'C ';
             }
         }
     }
@@ -33,13 +33,13 @@ class keyword {
             null;
         }else {
             if ($_POST['league']==1) {
-                echo 'B-league,';
+                echo 'B-league ';
             }else if ($_POST['league']==2) {
-                echo '3x3,';
+                echo '3x3 ';
             }else if ($_POST['league']==3) {
-                echo '地域リーグ,';
+                echo '地域リーグ ';
             }else if ($_POST['league']==4) {
-                echo 'アマチュアリーグ,';
+                echo 'アマチュアリーグ ';
             }
         }
     }
@@ -60,7 +60,6 @@ class keyword {
 
 $keyword = new keyword();
 ?>
-        
 @extends('layouts.layout')
 @section('content')
 <main class="py-4">
@@ -69,37 +68,39 @@ $keyword = new keyword();
             <div class="card">
                 <div class="card-header">
                     <div class='text-center'>
-                        [<? 
+                        <? 
                         $keyword->hometown(); 
                         $keyword->position(); 
                         $keyword->league(); 
                         $keyword->sex(); 
-                        ?>]
+                        ?>
                         の検索結果
                     </div>
                 </div>
                 <div class="card-body">
+                    @foreach($keywords as $keyword)
                     <div class="card-body">
                         <table class='table'>
                             <tr>
                                 <th>チーム名：</th>
                             </tr>
                             <tr>
-                                <th>所在地：</th>
+                                <th>募集しているポジション：</th>
                             </tr>
                             <tr>
-                                <th>所属リーグ：</th>
+                                <th>活動日：</th>
                             </tr>
                             <tr>
                                 <th>コメント：</th>
                             </tr>
                         </table>
                         <div class="text-center">
-                                <a href="{{ route('detail') }}">
-                                    <button>詳細</button>
-                                </a>
+                            <a href="{{ route('detail') }}">
+                                <button>詳細</button>
+                            </a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

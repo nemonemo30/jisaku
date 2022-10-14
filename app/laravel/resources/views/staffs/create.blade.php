@@ -6,19 +6,25 @@
       <nav class="card mt-5">
         <div class="card-header">新規作成</div>
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="{{ route('staffs_create') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="name">チーム前</label>
+                <label for="name">チーム名</label>
                 <input type="text" class="form-control" id="name" name="name"/>
             </div>
             <div class="form-group">
                 <label for="hometown">所在地</label>
-                <input type="number" class="form-control" id="hometown" name="hometown">
+                <input type="text" class="form-control" id="hometown" name="hometown">
             </div>
             <div class="form-group">
                 <label for="league">所属リーグ</label>
-                <input type="number" class="form-control" id="league" name="league">
+                <select  class="form-control" id="league_id" name="league_id">
+                  <option disabled selected>選択してください</option>
+                  <option value=1>B-league</option>
+                  <option value=2>3x3</option>
+                  <option value=3>地域リーグ</option>
+                  <option value=4>アマチュアリーグ</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="comment">コメント</label>

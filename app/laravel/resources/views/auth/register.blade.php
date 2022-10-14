@@ -16,7 +16,7 @@
             <form action="{{ route('register') }}" method="POST">
               @csrf
               <div class="form-group">
-                <label for="name">名前</label>
+                <label for="name">名前 or チーム名</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" />
               </div>
               <div class="form-group">
@@ -24,7 +24,7 @@
                 <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" />
               </div>
               <div class="form-group">
-                <label for="type_id">ユーザー名</label>
+                <label for="type_id">ユーザー</label>
                 <select  class="form-control" id="type_id" name="type_id">
                   <option disabled selected>選択してください</option>
                   <option value=0>選手</option>
