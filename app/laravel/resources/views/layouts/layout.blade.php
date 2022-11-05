@@ -10,6 +10,8 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('js/_ajax.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -18,7 +20,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="home.css">
     @yield('stylesheet')
 </head>
 <body>
@@ -46,11 +47,13 @@
                     <a class="my-navbar-item" href="{{ route('register') }}">会員登録</a>
                     @endif
                 </div>
-            </div>
-            <div class="text-right">
-                <a href="{{ route('home') }}">
-                    home
-                </a>
+                @if (Auth::check())
+                <div class="text-right">
+                    <a href="{{ route('home') }}">
+                        home
+                    </a>
+                </div>
+                @endif
             </div>
         </nav>
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-class keyword {
+class word {
     
     public function hometown(){
         if (empty($_POST["hometown"])) {
@@ -58,52 +58,78 @@ class keyword {
     }
 }
 
-$keyword = new keyword();
+$word = new word();
 ?>
 @extends('layouts.layout')
 @section('content')
-<main class="py-4">
-    <div class="row justify-content-around">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class='text-center'>
-                        <? 
-                        $keyword->hometown(); 
-                        $keyword->position(); 
-                        $keyword->league(); 
-                        $keyword->sex(); 
-                        ?>
-                        の検索結果
-                    </div>
-                </div>
+<div class="bg-image"
+     style="background-image: url('https://lh5.googleusercontent.com/proxy/YqjPKEQi14-g5EA-ZVy1sIdIc6oE9eINcsN6I7TGLQYiAKW4c5ZkQ2kwYepMxABprjbG7HCP44TGlF-A0hQY1TQf=w1200-h630-p-k-no-nu');">
+    <div class="listings my-5">
+        <div class='text-center'>
+            <?
+            $word->hometown(); 
+            $word->position(); 
+            $word->league(); 
+            $word->sex(); 
+            ?>
+            の検索結果
+        </div>
+        <div class="row">
+        @foreach($keywords as $keyword)
+            <div class="col-12 col-md-3 item text-center">
                 <div class="card-body">
-                    @foreach($keywords as $keyword)
-                    <div class="card-body">
-                        <table class='table'>
-                            <tr>
-                                <th>チーム名：</th>
-                            </tr>
-                            <tr>
-                                <th>募集しているポジション：</th>
-                            </tr>
-                            <tr>
-                                <th>活動日：</th>
-                            </tr>
-                            <tr>
-                                <th>コメント：</th>
-                            </tr>
-                        </table>
-                        <div class="text-center">
-                            <a href="{{ route('detail') }}">
-                                <button>詳細</button>
-                            </a>
-                        </div>
+                    <table class='table'>
+                        <tr>
+                            <th>チーム名：{{ $keyword->name }}</th>
+                        </tr>
+                        <tr>
+                            <th>所属リーグ：
+                                <? 
+                                if ($keyword->league_id==1){
+                                    echo "プロリーグ";
+                                } else if ($keyword->league_id==2) {
+                                    echo "地域リーグ";
+                                } else if ($keyword->league_id==3) {
+                                    echo "3x3";
+                                } else if ($keyword->league_id==4) {
+                                    echo "アマチュアリーグ";
+                                }
+                                ?>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>募集しているポジション：
+                                <? 
+                                if ($keyword->position_id==1){
+                                    echo "PG";
+                                } else if ($keyword->position_id==2) {
+                                    echo "SG";
+                                } else if ($keyword->position_id==3) {
+                                    echo "SF";
+                                } else if ($keyword->position_id==4) {
+                                    echo "PF";
+                                } else if ($keyword->position_id==5) {
+                                    echo "C";
+                                } 
+                                ?>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>活動日：{!! nl2br($keyword->active) !!}</th>
+                        </tr>
+                        <tr>
+                            <th>コメント：{!! nl2br($keyword->comment) !!}</th>
+                        </tr>
+                    </table>
+                    <div class="text-center">
+                        <a href="{{ route('detail', ['id'=>$keyword->id]) }}">
+                            <button>募集詳細</button>
+                        </a>
                     </div>
-                    @endforeach
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
-</main>
+</div>
 @endsection

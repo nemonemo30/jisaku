@@ -4,10 +4,21 @@
   <div class="row justify-content-center">
     <div class="col col-md-offset-3 col-md-6">
       <nav class="card mt-5">
-        <div class="card-header">新規作成</div>
+        <div class="card-header">編集</div>
         <div class="card-body">
+          <div class="pannel-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $message)
+                <li>{{ $message }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+          </div>
             @foreach($players as $player)
-          <form action="{{ route('update') }}" method="post">
+          <form action="{{ route('update') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">名前</label>
@@ -40,13 +51,13 @@
                 <label for="sex_id">性別</label>
                 <select class="form-control" id="sex_id" name="sex_id">
                     <option value="{{ $player['sex_id'] }}" selected>{{ $player['sex']['name'] }}</option>
-                    <option value=0>男性</option>
-                    <option value=1>女性</option>
+                    <option value=1>男性</option>
+                    <option value=2>女性</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="video">投稿画像・動画</label>
-                <input type="file" class="form-control" id="video" name="video" accept=".mp4" value="{{ $player['video'] }}">
+                <input type="file" class="form-control" id="video" name="video" accept=".png" value="{{ $player['video'] }}">
             </div>
             <div class="form-group">
                 <label for="comment">コメント</label>

@@ -6,6 +6,17 @@
       <nav class="card mt-5">
         <div class="card-header text-center">新規募集フォーム</div>
         <div class="card-body">
+          <div class="pannel-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $message)
+                <li>{{ $message }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+          </div>
           <form action="{{ route('recruit') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -37,10 +48,10 @@
             </div>
             <div class="form-group">
                 <label for="comment">メッセージ</label>
-                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10"></textarea>
+                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10" placeholder="過去の実績など"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" onClick="confirm('この内容で募集しますか')">募集</button>
+              <button type="submit" class="btn btn-primary" onClick="return confirm('この内容で募集しますか')">募集</button>
             </div>
           </form>
         </div>

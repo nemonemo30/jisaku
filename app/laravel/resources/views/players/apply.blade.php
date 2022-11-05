@@ -6,8 +6,19 @@
       <nav class="card mt-5">
         <div class="card-header text-center">応募フォーム</div>
         <div class="card-body">
+          <div class="pannel-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $message)
+                <li>{{ $message }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+          </div>
             @foreach($players as $player)
-          <form action="" method="POST">
+            <form action="{{ route('apply', ['id'=>$recruits_id]) }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">名前</label>
@@ -35,10 +46,10 @@
             </div>
             <div class="form-group">
                 <label for="comment">メッセージ</label>
-                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10"></textarea>
+                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10" placeholder="経歴や自身の特徴"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" onClick="confirm('この内容で応募してよろしいですか')">応募</button>
+              <button type="submit" class="btn btn-primary" onClick="return confirm('この内容で応募してよろしいですか')">応募</button>
             </div>
             @endforeach
           </form>

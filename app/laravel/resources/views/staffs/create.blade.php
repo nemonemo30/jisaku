@@ -6,7 +6,7 @@
       <nav class="card mt-5">
         <div class="card-header">新規作成</div>
         <div class="card-body">
-          <form action="{{ route('staffs_create') }}" method="POST">
+          <form action="{{ route('staffs_create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">チーム名</label>
@@ -20,18 +20,22 @@
                 <label for="league">所属リーグ</label>
                 <select  class="form-control" id="league_id" name="league_id">
                   <option disabled selected>選択してください</option>
-                  <option value=1>B-league</option>
+                  <option value=1>プロリーグ</option>
                   <option value=2>3x3</option>
                   <option value=3>地域リーグ</option>
                   <option value=4>アマチュアリーグ</option>
                 </select>
             </div>
             <div class="form-group">
+                <label for="video">投稿画像・動画</label>
+                <input type="file" class="form-control" id="video" name="video" accept=".png">
+            </div>
+            <div class="form-group">
                 <label for="comment">コメント</label>
-                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10"></textarea>
+                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10" placeholder="チームの紹介文"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary">登録</button>
+              <button type="submit" class="btn btn-primary" onClick="return cinfirm('この内容で登録してよろしいですか')">登録</button>
             </div>
           </form>
         </div>

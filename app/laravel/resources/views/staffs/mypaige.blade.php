@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('content')
-<main class="py-4">
+<div class="bg-image"
+     style="background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20201223/pngtree-basketball-texture-clean-background-image_513513.jpg');">
+<main class="py-4 mb-2">
     <div class="row justify-content-around">
         <ul>
             <li class="list-unstyled">
@@ -8,6 +10,12 @@
             </li>
             <li class="list-unstyled">
                 <a href="{{ route('applicant') }}">応募者一覧</a>
+            </li>
+            <li class="list-unstyled">
+                <a href="{{ route('recruit') }}">新規募集</a>
+            </li>
+            <li class="list-unstyled">
+                <a href="{{ route('staffs_chat_list') }}">メッセージ</a>
             </li>
         </ul>
         <div class="col-md-4">
@@ -20,6 +28,11 @@
                         <table class='table'>
                             @foreach($posts as $post)
                             <tr>
+                                <th>
+                                    <img class="img-fluid" src="{{ Storage::url($post['video']) }}">
+                                </th>
+                            </tr>
+                            <tr>
                                 <th>チーム名：{{ $post['name'] }}</th>
                             </tr>
                             <tr>
@@ -29,7 +42,7 @@
                                 <th>リーグ：{{ $post['league']['name'] }}</th>
                             </tr>
                             <tr>
-                                <th>コメント：{{ $post['comment'] }}</th>
+                                <th>コメント：{!! nl2br($post['comment']) !!}</th>
                             </tr>
                             @endforeach
                         </table>
@@ -64,16 +77,19 @@
                                 <th>募集中の性別：{{ $recruit['sex']['name'] }}</th>
                             </tr>
                             <tr>
-                                <th>活動日-時間：{{ $recruit['active'] }}</th>
+                                <th>活動日-時間：{!! nl2br($recruit['active']) !!}</th>
                             </tr>
                             <tr>
-                                <th>コメント：{{ $recruit['comment'] }}</th>
+                                <th>コメント：{!! nl2br($recruit['comment']) !!}</th>
                             </tr>
-                            <div></div>
-                        </table>            
-                            <a onClick="confirm('本当に削除してよろしいですか')" href="{{ route('delete', ['id' => $recruit['id']]) }}">
-                                <button>削除</button>
-                            </a>
+                            <tr>
+                                <th>
+                                    <a onClick="return confirm('本当に削除してよろしいですか')" href="{{ route('staffs_delete', ['id' => $recruit['id']]) }}">
+                                        <button>削除</button>
+                                    </a>
+                                </th>
+                            </tr>
+                        </table>     
                     </div>
                 </div>
                 @endforeach
@@ -88,4 +104,5 @@
         </div>
     </div>
 </main>
+</div>
 @endsection

@@ -6,7 +6,18 @@
       <nav class="card mt-5">
         <div class="card-header">新規作成</div>
         <div class="card-body">
-          <form action="{{ route('create') }}" method="POST">
+          <div class="pannel-body">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach($errors->all() as $message)
+                <li>{{ $message }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+          </div>
+          <form action="{{ route('create') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">名前</label>
@@ -45,14 +56,14 @@
             </div>
             <div class="form-group">
                 <label for="video">投稿画像・動画</label>
-                <input type="file" class="form-control" id="video" name="video" accept=".mp4">
+                <input type="file" class="form-control" id="video" name="video" accept=".png">
             </div>
             <div class="form-group">
                 <label for="comment">コメント</label>
-                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10"></textarea>
+                <textarea name="comment" id="comment" class="form-control" cols="35" rows="10" placeholder="自己紹介文"></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary" onClick="confirm('この内容で登録します')">登録</button>
+              <button type="submit" class="btn btn-primary" onClick="return confirm('この内容で登録します')">登録</button>
             </div>
           </form>
         </div>
