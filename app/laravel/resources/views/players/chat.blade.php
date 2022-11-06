@@ -8,21 +8,49 @@
                 <div class="card-body bg-success">
                     @foreach($sends as $send)
                     @if ($send->send_id==$send_id)
-                    <div class="text-right">
-                        <div class="badge bg-primary text-left" style="width: 15rem;">
-                            {{ $send->comment }}
+                    <div class="text-right mt-1">
+                        <div class="text-white bg-primary text-left pl-1" style="border-radius:10px">
+                        {{ $send->comment }}
                         </div>
                     </div>
                     @else
-                    <div class="text-left">
-                        <div class="badge bg-primary text-left" style="width: 15rem;">
+                    <div class="text-left mt-1">
+                        <div class="text-white bg-secondary text-left pl-1" style="border-radius:10px">
                             {{ $send->comment }}
                         </div>
                     </div>
                     @endif
                     @endforeach
-                    <div style="display:none" class="result text-right">
-                        <div class="submit badge bg-primary text-left" style="width: 15rem;"></div>
+                    <!-- コメントを表示するためのもの -->
+                    <div style="display:none" class="result1 text-right mt-1">
+                        <div class="submit1 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result2 text-right mt-1">
+                        <div class="submit2 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result3 text-right mt-1">
+                        <div class="submit3 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result4 text-right mt-1">
+                        <div class="submit4 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result5 text-right mt-1">
+                        <div class="submit5 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result6 text-right mt-1">
+                        <div class="submit6 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result7 text-right mt-1">
+                        <div class="submit7 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result8 text-right mt-1">
+                        <div class="submit8 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result9 text-right mt-1">
+                        <div class="submit9 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
+                    </div>
+                    <div style="display:none" class="result10 text-right mt-1">
+                        <div class="submit10 text-white bg-primary text-left pl-1" style="border-radius:10px"></div>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -59,9 +87,39 @@
         .done(function(data){
             console.log('通信成功');
             $result = data;
-            $('.submit').text(data);
+            if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='' && $('.submit5').text()!=='' && $('.submit6').text()!=='' && $('.submit7').text()!=='' && $('.submit8').text()!=='' && $('.submit9').text()!=='') {
+                $('.submit10').text(data);
+                $('.result10').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='' && $('.submit5').text()!=='' && $('.submit6').text()!=='' && $('.submit7').text()!=='' && $('.submit8').text()!=='') {
+                $('.submit9').text(data);
+                $('.result9').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='' && $('.submit5').text()!=='' && $('.submit6').text()!=='' && $('.submit7').text()!=='') {
+                $('.submit8').text(data);
+                $('.result8').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='' && $('.submit5').text()!=='' && $('.submit6').text()!=='') {
+                $('.submit7').text(data);
+                $('.result7').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='' && $('.submit5').text()!=='') {
+                $('.submit6').text(data);
+                $('.result6').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='' && $('.submit4').text()!=='') {
+                $('.submit5').text(data);
+                $('.result5').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='' && $('.submit3').text()!=='') {
+                $('.submit4').text(data);
+                $('.result4').show();
+            }else if ($('.submit1').text()!=='' && $('.submit2').text()!=='') {
+                $('.submit3').text(data);
+                $('.result3').show();
+            }else if ($('.submit1').text()!=='') {
+                $('.submit2').text(data);
+                $('.result2').show();
+            }else if ($('.submit1').text()=="") {
+                $('.submit1').text(data);
+                $('.result1').show();
+                console.log($('.submit1').text());
+            }
             $('#comment').val('');
-            $('.result').show();
         })
         .fail(function(jqXHR, textStatus, errorThrown){
             alert('通信に失敗しました');

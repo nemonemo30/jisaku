@@ -109,7 +109,7 @@ $keyword = new keyword();
                             <th>コメント：{!! nl2br($keyword->comment) !!}</th>
                         </tr>
                         <tr>
-                            <img style="height:25vh" class="img-fluid" src="{{ Storage::url($keyword->video) }}">
+                            <video style="height:25vh" controls class="img-fluid" src="{{ Storage::url($keyword->video) }}">
                         </tr>
                     </table>
                     <div class="text-center">

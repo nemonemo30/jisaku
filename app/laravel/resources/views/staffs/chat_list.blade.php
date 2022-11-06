@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 text-center">
             <nav class="card mt-5" style="height:90vh">
-                <div class="card-header">messageの来ている選手</div>
+                <div class="card-header">メッセージの来ている選手</div>
                 <div class="card-body bg-success">
                     <ul class="text-left">
                         @foreach($new_messages as $new_message) 

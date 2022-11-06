@@ -29,7 +29,7 @@
                             @foreach($posts as $post)
                             <tr>
                                 <th>
-                                    <img class="img-fluid" src="{{ Storage::url($post['video']) }}">
+                                    <video class="img-fluid" controls src="{{ Storage::url($post['video']) }}">
                                 </th>
                             </tr>
                             <tr>

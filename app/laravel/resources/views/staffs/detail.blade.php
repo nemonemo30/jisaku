@@ -66,7 +66,7 @@
                                     <th>コメント：{!! nl2br($detail->comment) !!}</th>
                                 </tr>
                                 <tr>
-                                    <img class="img-fluid" src="{{ Storage::url($detail->video) }}">
+                                    <video class="img-fluid" controls src="{{ Storage::url($detail->video) }}">
                                 </tr>
                             </table>
                             @if (empty($likes))

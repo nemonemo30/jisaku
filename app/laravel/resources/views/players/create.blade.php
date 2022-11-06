@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label for="video">投稿画像・動画</label>
-                <input type="file" class="form-control" id="video" name="video" accept=".png">
+                <input type="file" class="form-control" id="video" name="video" accept=".mp4">
             </div>
             <div class="form-group">
                 <label for="comment">コメント</label>

@@ -55,7 +55,7 @@
                                 <th>コメント：{!! nl2br($good->comment) !!}</th>
                             </tr>
                             <tr>
-                                <img style="height:25vh" class="img-fluid" src="{{ Storage::url($good->video) }}" alt="">
+                                <video style="height:25vh" controls class="img-fluid" src="{{ Storage::url($good->video) }}" alt="">
                             </tr>
                         </table>
                         <div class="text-center">

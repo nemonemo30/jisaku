@@ -14,7 +14,7 @@
                         <table class='table'>
                             <tr>
                                 <th>
-                                    <img style="height:25vh" class="img-fluid" src="{{ Storage::url($contact->video) }}">
+                                    <video style="height:25vh" class="img-fluid" controls src="{{ Storage::url($contact->video) }}">
                                 </th>
                             </tr>
                             <tr>

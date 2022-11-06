@@ -23,7 +23,8 @@ style="background-image: url('https://png.pngtree.com/thumb_back/fw800/backgroun
                             <table class='table'>
                                 <tr>
                                     <th>
-                                        <img class="img-fluid" src="{{ Storage::url($player['video']) }}">
+                                        <video class="img-fluid" controls src="{{ Storage::url($player['video']) }}"></video>
+                                        <!-- <img class="img-fluid" src="{{ Storage::url($player['video']) }}"> -->
                                     </th>
                                 </tr>
                                 <tr>

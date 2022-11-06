@@ -23,7 +23,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th><div募集しているポジション</div>
+                            <th><div>募集しているポジション</div>
                                 <? 
                                 if ($recruit->position_id==1){
                                     echo "PG";
